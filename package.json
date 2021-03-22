@@ -1,0 +1,14 @@
+{
+  "name": "electron-11.2-webgl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "./node_modules/.bin/electron ./"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^11.2.0"
+  }
+}
