@@ -15,6 +15,7 @@ function createWindow () {
   win.loadFile('./web-mobile/index.html');
 };
 
+
 app.whenReady().then(() => {
   createWindow();
 
