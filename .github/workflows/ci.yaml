@@ -9,21 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Get Pull Request Data
-        id: get_pr_data
-        uses: octokit/request-action@v2.x
-        with:
-          route: Get /repos/${{ github.repository }}/pulls/${{ github.event.issue.number }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - uses: VisualSJ/action-javascript-runner@v0
         with:
           script: './workflow.js'
-          data: '{{steps.get_pr_data.outputs.data}}'
-
-      - name: Run a one-line script
-        run: echo Hello, world!
+          data: '{{github.event}}'
 
       - name: Run a multi-line script
         run: |
