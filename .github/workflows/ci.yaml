@@ -1,6 +1,7 @@
+
 name: CI
 
-on: ['push', 'pull_request']
+on: ['pull_request']
 
 jobs:
   build:
@@ -13,10 +14,12 @@ jobs:
         with:
           script: './workflow.js'
 
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - uses: VisualSJ/action-javascript-runner@v1
+        with:
+          script: './workflow.js'
 
-      - name: Run a multi-line script
+      - name: Check finished
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo 1. Clean up the warehouse
+          echo 2. Perform the complete build task
+          echo Encountering an error causes an exception to exit the process
