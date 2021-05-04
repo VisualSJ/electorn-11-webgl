@@ -1,3 +1,4 @@
+
 name: CI
 
 on: ['pull_request']
@@ -9,12 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: VisualSJ/action-javascript-runner@v0
+      - uses: VisualSJ/action-javascript-runner@v1
         with:
           script: './workflow.js'
-          data: '{{github.event}}'
 
-      - name: Run a multi-line script
+      - uses: VisualSJ/action-javascript-runner@v1
+        with:
+          script: './workflow.js'
+
+      - name: Check finished
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo 1. Clean up the warehouse
+          echo 2. Perform the complete build task
+          echo Encountering an error causes an exception to exit the process
